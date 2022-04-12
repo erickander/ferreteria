@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Transacciones extends Migration
+class CreateTransaccionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class Transacciones extends Migration
      */
     public function up()
     {
-        Schema::create('Transacciones', function (Blueprint $table) {
+        Schema::create('transacciones', function (Blueprint $table) {
             $table->id('tra_id');
             $table->date('tra_fecha');
             $table->float('tra_cantidad');
             $table->float('tra_subtotal');
             $table->float('tra_iva');
             $table->float('tra_total');
-            $table->foreignId('usu_id')->references('usu_id')->on('User');
-            $table->foreignId('pro_id')->references('pro_id')->on('Productos');
-            $table->foreignId('cli_id')->references('cli_id')->on('Clientes');
-            });
+            $table->float('tra_descuento');
+            $table->foreignId('usu_id')->references('usu_id')->on('users');
+            $table->foreignId('pro_id')->references('pro_id')->on('productos');
+            $table->foreignId('cli_id')->references('cli_id')->on('clientes');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -33,6 +35,6 @@ class Transacciones extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Transacciones');
+        Schema::dropIfExists('transacciones');
     }
 }

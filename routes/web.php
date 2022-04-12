@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+ 
+//permisos
+Route::get('/permisos', 'permisosController@index')->name('permisos');
+Route::get('/permisos/create', 'permisosController@create')->name('permisos.create');
+Route::post('/permisos/store', 'permisosController@store')->name('permisos.store');
+Route::get('/permisos/edit/{tip_id}', 'permisosController@edit')->name('permisos.edit');
+Route::post('/permisos/update{tip_id}', 'permisosController@update')->name('permisos.update');
+Route::post('/permisos/destroy{tip_id}', 'permisosController@destroy')->name('permisos.destroy');
+//productos
+
+
