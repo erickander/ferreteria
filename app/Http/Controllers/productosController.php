@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\permisos;
+use App\productos;
 
-class permisosController extends Controller
+class productosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class permisosController extends Controller
      */
     public function index()
     {
-         $permisos=permisos::all();
-        return view('permisos.index')
-        ->with('permisos',$permisos);
+        $productos=productos::all();
+        return view('productos.index')
+        ->with('productos',$productos);
     }
 
     /**
@@ -26,7 +26,7 @@ class permisosController extends Controller
      */
     public function create()
     {
-        return view ('permisos.create');
+        return view ('productos.create');
     }
 
     /**
@@ -38,8 +38,8 @@ class permisosController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
-        permisos::create($data);
-        return redirect(route('permisos'));
+        productos::create($data);
+        return redirect(route('productos'));
     }
 
     /**
@@ -61,9 +61,9 @@ class permisosController extends Controller
      */
     public function edit($id)
     {
-        $permisos=permisos::find($id);
-         return view("permisos.edit")
-         ->with('permisos',$permisos);
+        $productos=productos::find($id);
+         return view("productos.edit")
+         ->with('productos',$productos);
     }
 
     /**
@@ -75,10 +75,9 @@ class permisosController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $Per=permisos::find($id);
-        $Per->update($request->all());
-        return redirect(route('permisos'));
-
+        $p=productos::find($id);
+        $p->update($request->all());
+        return redirect(route('productos'));
     }
 
     /**
@@ -89,8 +88,7 @@ class permisosController extends Controller
      */
     public function destroy($id)
     {
-        permisos::destroy($id);
-        return redirect(route('permisos'));
+        productos::destroy($id);
+        return redirect(route('productos'));
     }
 }
- 
