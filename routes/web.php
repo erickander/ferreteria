@@ -35,5 +35,18 @@ Route::post('/productos/store', 'productosController@store')->name('productos.st
 Route::get('/productos/edit/{per_id}', 'productosController@edit')->name('productos.edit');
 Route::post('/productos/update{per_id}', 'productosController@update')->name('productos.update');
 Route::post('/productos/destroy{per_id}', 'productosController@destroy')->name('productos.destroy');
-
+//proveedor
+Route::get('/proveedor', 'proveedorController@index')->name('proveedor');
+Route::get('/proveedor/create', 'proveedorController@create')->name('proveedor.create');
+Route::post('/proveedor/store', 'proveedorController@store')->name('proveedor.store');
+Route::get('/proveedor/edit/{dor_id}', 'proveedorController@edit')->name('proveedor.edit');
+Route::post('/proveedor/update{dor_id}', 'proveedorController@update')->name('proveedor.update');
+Route::post('/proveedor/destroy{dor_id}', 'proveedorController@destroy')->name('proveedor.destroy');
+//clientes
+Route::get('/clientes', 'clientesController@index')->name('clientes');
+Route::get('/clientes/create', 'clientesController@create')->name('clientes.create');
+Route::post('/clientes/store', 'clientesController@store')->name('clientes.store');
+Route::get('/clientes/edit/{cli_id}', 'clientesController@edit')->name('clientes.edit');
+Route::post('/clientes/update{cli_id}', 'clientesController@update')->name('clientes.update');
+Route::post('/clientes/destroy{cli_id}', 'clientesController@destroy')->name('clientes.destroy');
 

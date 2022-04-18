@@ -18,7 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('pro_nombre');
             $table->string('pro_calidad');
             $table->string('pro_tamaño');
-            $table->integer('pro_estado');
+            $table->string('pro_estado');
             $table->string('pro_descripcion');
             $table->float('pro_precio');
         });

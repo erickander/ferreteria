@@ -13,7 +13,7 @@ public $timestamps=false;
         'pro_nombre',
         'pro_calidad',
         'pro_tamaño',
-        'pro_tamaño',
+        'pro_estado',
         'pro_descripcion',
         'pro_precio',
         ];

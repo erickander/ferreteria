@@ -9,7 +9,7 @@
     <form action="{{route('permisos.update',$permisos->per_id)}}" method="POST">
      	@csrf
      	
-     <label>Detalle de la categoria</label>
+     <label>Detallar los permisos</label>
 
      <input type="text" value="{{$permisos->per_tipo}}" name="per_tipo" id="per_tipo">
      <button class="btn btn-success">Guardar</button>

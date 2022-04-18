@@ -10,11 +10,11 @@
                     <div class="card-body">
 <script src="{{asset('js/permisos.js')}}"></script>
 
-   <h4 class="bg-dark text-white">Formulario De Registro</h4>
+   <h4 class="bg-dark text-white" align="center">Registrar Permisos</h4>
      <form action="{{route('permisos.store')}}" method="POST" onsubmit="return validar()">
      	@csrf
      	
-     <label>Detalle de la categoria</label>
+     <label>Permiso</label>
      <input type="text" name="per_tipo" id="per_tipo">
      <button type="submit" class="btn btn-success">Guardar</button>
      </form>

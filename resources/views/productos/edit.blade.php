@@ -14,14 +14,14 @@
      <input type="text" value="{{$productos->pro_nombre}}" name="pro_nombre" id="pro_nombre">
  </p>
  <p>
-     <input type="text" value="{{$productos->pro_calidad}}" name="mov_fecha" id="mov_fecha">
+     <input type="text" value="{{$productos->pro_calidad}}" name="pro_calidad" id="pro_calidad">
      </p>
      
         <p>
     <input type="text" value="{{$productos->pro_tamaño}}" id="pro_tamaño" name="pro_tamaño">
     </p>
     <p>
-        <input type="number" value="{{$productos->pro_estado}}" id="pro_estado" name="pro_estado">
+        <input type="text" value="{{$productos->pro_estado}}" id="pro_estado" name="pro_estado">
     </p>
     <p>
         <input type="text" value="{{$productos->pro_descripcion}}" id="pro_descripcion" name="pro_descripcion">

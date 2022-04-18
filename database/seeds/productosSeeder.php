@@ -16,7 +16,7 @@ class productosSeeder extends Seeder
           'pro_nombre'=>'Taladro',
           'pro_calidad'=>'Alta',
           'pro_tamaño'=>'grande',
-          'pro_estado'=>1 ,
+          'pro_estado'=>'stock',
           'pro_descripcion'=>'taladro martillo grande',
           'pro_precio'=>250,
 
