@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Transacciones;
 use Illuminate\Http\Request;
-use App\productos;
+use DB;
+use Auth;
+use App\Productos;
+use App\Clientes;
+use App\User;
 
-class productosController extends Controller
+
+class transaccionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +19,18 @@ class productosController extends Controller
      */
     public function index()
     {
-        $productos=productos::all();
-        return view('productos.index')
-        ->with('productos',$productos);
+         //$Transacciones=Transacciones::all();
+        $Transacciones=DB::select("
+            SELECT * FROM Transacciones t 
+            JOIN users u 
+            ON t.usu_id=u.usu_id
+             JOIN productos p 
+            ON t.pro_id=p.pro_id
+             JOIN clientes c 
+            ON t.cli_id=c.cli_id
+             ");
+        return view('transacciones.index')
+        ->with('transacciones',$Transacciones);
     }
 
     /**
@@ -26,8 +40,8 @@ class productosController extends Controller
      */
     public function create()
     {
-        $users=users::all();
-        return view ('productos.create');
+        $User=User::all();
+        return view ('transacciones.create')->with('users',$User);
     }
 
     /**
@@ -39,8 +53,9 @@ class productosController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
-        productos::create($data);
-        return redirect(route('productos'));
+        $data['usu_id']=Auth::user()->usu_id;
+        Transacciones::create($data);
+        return redirect(route('transacciones'));
     }
 
     /**
@@ -62,9 +77,9 @@ class productosController extends Controller
      */
     public function edit($id)
     {
-        $productos=productos::find($id);
-         return view("productos.edit")
-         ->with('productos',$productos);
+        $Transacciones=Transacciones::find($id);
+         return view("transacciones.edit")
+         ->with('transacciones',$Transacciones);
     }
 
     /**
@@ -76,9 +91,9 @@ class productosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $p=productos::find($id);
-        $p->update($request->all());
-        return redirect(route('productos'));
+        $tra=Transacciones::find($id);
+        $tra->update($request->all());
+        return redirect(route('transacciones'));
     }
 
     /**
@@ -89,7 +104,7 @@ class productosController extends Controller
      */
     public function destroy($id)
     {
-        productos::destroy($id);
-        return redirect(route('productos'));
+        Transacciones::destroy($id);
+        return redirect(route('transacciones'));
     }
 }

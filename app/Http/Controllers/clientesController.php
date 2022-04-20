@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Clientes;
 use App\permisos;
+use DB;
 class clientesController extends Controller
 {
     /**
@@ -14,7 +15,10 @@ class clientesController extends Controller
      */
     public function index()
     {
-        $clientes=clientes::all();
+        //$clientes=clientes::all();
+        $clientes=DB::select("
+            SELECT * FROM clientes c JOIN permisos p 
+            ON c.per_id=p.per_id ");
         return view('clientes.index')
         ->with('clientes',$clientes);
     }

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\productos;
 
-class productosController extends Controller
+class inventarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class productosController extends Controller
      */
     public function index()
     {
-        $productos=productos::all();
-        return view('productos.index')
-        ->with('productos',$productos);
+        //
     }
 
     /**
@@ -26,8 +23,7 @@ class productosController extends Controller
      */
     public function create()
     {
-        $users=users::all();
-        return view ('productos.create');
+        //
     }
 
     /**
@@ -38,9 +34,7 @@ class productosController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
-        productos::create($data);
-        return redirect(route('productos'));
+        //
     }
 
     /**
@@ -62,9 +56,7 @@ class productosController extends Controller
      */
     public function edit($id)
     {
-        $productos=productos::find($id);
-         return view("productos.edit")
-         ->with('productos',$productos);
+        //
     }
 
     /**
@@ -76,9 +68,7 @@ class productosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $p=productos::find($id);
-        $p->update($request->all());
-        return redirect(route('productos'));
+        //
     }
 
     /**
@@ -89,7 +79,6 @@ class productosController extends Controller
      */
     public function destroy($id)
     {
-        productos::destroy($id);
-        return redirect(route('productos'));
+        //
     }
 }

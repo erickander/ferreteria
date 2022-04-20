@@ -9,6 +9,11 @@
                 <div class="card mb-6 border-info">
                     <div class="card-body">
    <h4 class="bg-dark text-white" align="center">Rgistros de proveedores</h4>
+   <h3 for="">Concepto</h3>
+                     <select name="usu_id" id="usu_id" class="form-control">
+                         <option value="">Elige Una Opcion</option>
+                         @foreach($users as $u)
+                         <option value=" {{$u->usu_id}}"> {{$u->usu_name}} </option>
      <form action="{{route('proveedor.store')}}" method="POST" onsubmit="return validar()">
      	@csrf
      	<p>

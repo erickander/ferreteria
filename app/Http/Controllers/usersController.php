@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use Illuminate\Http\Request;
-use App\productos;
+use app\permisos;
+use DB;
 
-class productosController extends Controller
+class usersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,12 @@ class productosController extends Controller
      */
     public function index()
     {
-        $productos=productos::all();
-        return view('productos.index')
-        ->with('productos',$productos);
+        //$User=User::all();
+        $User=DB::select("
+            SELECT * FROM users u JOIN permisos p 
+            ON u.per_id=p.per_id ");
+        return view('users.index')
+        ->with('users',$User);
     }
 
     /**
@@ -26,8 +30,7 @@ class productosController extends Controller
      */
     public function create()
     {
-        $users=users::all();
-        return view ('productos.create');
+         return view ('users.create');
     }
 
     /**
@@ -38,9 +41,9 @@ class productosController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
-        productos::create($data);
-        return redirect(route('productos'));
+         $data=$request->all();
+        User::create($data);
+        return redirect(route('users'));
     }
 
     /**
@@ -62,9 +65,9 @@ class productosController extends Controller
      */
     public function edit($id)
     {
-        $productos=productos::find($id);
-         return view("productos.edit")
-         ->with('productos',$productos);
+        $User=User::find($id);
+         return view("users.edit")
+         ->with('users',$User);
     }
 
     /**
@@ -76,9 +79,9 @@ class productosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $p=productos::find($id);
-        $p->update($request->all());
-        return redirect(route('productos'));
+        $u=User::find($id);
+        $u->update($request->all());
+        return redirect(route('users'));
     }
 
     /**
@@ -89,7 +92,7 @@ class productosController extends Controller
      */
     public function destroy($id)
     {
-        productos::destroy($id);
-        return redirect(route('productos'));
+        User::destroy($id);
+        return redirect(route('users'));
     }
 }

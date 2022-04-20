@@ -3,39 +3,43 @@
 
 
      <table class="table table-info table-striped">
-           <a class="btn btn-info text-white" href="{{route('proveedor.create')}}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+           <a class="btn btn-info text-white" href="{{route('transacciones.create')}}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 </svg>  Nuevo</a>
      <th> # </th>
-     <th> Nombre </th>
-     <th>Apellido</th>
-     <th>Ruc</th>
-     <th>Cedula</th>
-     <th>Direccion</th>
-     <th>Telefono</th>
+     <th> Vendedor </th>
+     <th>Cliente</th>
+     <th>cosas</th>
      <th>Fecha</th>
+     <th>Cantidad</th>
+     <th>Sub-total</th>
+     <th>Iva</th>
+     <th>Descuento</th>
+     <th>Total</th>
      <th>Acciones</th>
         
 
-   @foreach($proveedor  as  $dor)
+   @foreach($transacciones  as  $tra)
 
    <tr> 
      <td>{{$loop->iteration }}</td>
-     <td>{{$dor->dor_nombre }}</td>
-     <td>{{$dor->dor_apellido }}</td>
-     <td>{{$dor->dor_ruc }}</td>
-     <td>{{$dor->dor_cedula }}</td>
-     <td>{{$dor->dor_direccion }}</td>
-     <td>{{$dor->dor_telefono }}</td>
-     <td>{{$dor->dor_fecha }}</td>
+     <td>{{$tra->usu_name }}</td>
+     <td>{{$tra->cli_nombre }}</td>
+     <td>{{$tra->pro_nombre }}</td>
+     <td>{{$tra->tra_fecha }}</td>
+     <td>{{$tra->tra_cantidad }}</td>
+     <td>{{$tra->tra_subtotal }}$</td>
+     <td>{{$tra->tra_iva }}%</td>
+      <td>{{$tra->tra_descuento }}%</td>
+      <td>{{$tra->tra_total }}$</td>
      <td>
       <div class="row">
-       <a href="{{route('proveedor.edit',$dor->dor_id)}}" class="btn btn-info btf-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+       <a href="{{route('transacciones.edit',$tra->tra_id)}}" class="btn btn-info btf-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
   <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
 </svg></a>
 
-    <form action="{{route('proveedor.destroy',$dor->dor_id)}}" method="POST" onsubmit="return confirm('Desea Eliminar')">
+    <form action="{{route('transacciones.destroy',$tra->tra_id)}}" method="POST" onsubmit="return confirm('Desea Eliminar')">
     @csrf
 <button class="btn-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>

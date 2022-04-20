@@ -49,4 +49,24 @@ Route::post('/clientes/store', 'clientesController@store')->name('clientes.store
 Route::get('/clientes/edit/{cli_id}', 'clientesController@edit')->name('clientes.edit');
 Route::post('/clientes/update{cli_id}', 'clientesController@update')->name('clientes.update');
 Route::post('/clientes/destroy{cli_id}', 'clientesController@destroy')->name('clientes.destroy');
-
+//usuarios
+Route::get('/users', 'usersController@index')->name('users');
+Route::get('/users/create', 'usersController@create')->name('users.create');
+Route::post('/users/store', 'usersController@store')->name('users.store');
+Route::get('/users/edit/{usu_id}', 'usersController@edit')->name('users.edit');
+Route::post('/users/update{usu_id}', 'usersController@update')->name('users.update');
+Route::post('/users/destroy{usu_id}', 'usersController@destroy')->name('users.destroy');
+//inventario
+Route::get('/inventario', 'inventarioController@index')->name('inventario');
+Route::get('/inventario/create', 'inventarioController@create')->name('inventario.create');
+Route::post('/inventario/store', 'inventarioController@store')->name('inventario.store');
+Route::get('/inventario/edit/{inv_id}', 'inventarioController@edit')->name('inventario.edit');
+Route::post('/inventario/update{inv_id}', 'inventarioController@update')->name('inventario.update');
+Route::post('/inventario/destroy{inv_id}', 'inventarioController@destroy')->name('inventario.destroy');
+//transacciones
+Route::get('/transacciones', 'transaccionesController@index')->name('transacciones');
+Route::get('/transacciones/create', 'transaccionesController@create')->name('transacciones.create');
+Route::post('/transacciones/store', 'transaccionesController@store')->name('transacciones.store');
+Route::get('/transacciones/edit/{tra_id}', 'transaccionesController@edit')->name('transacciones.edit');
+Route::post('/transacciones/update{tra_id}', 'transaccionesController@update')->name('transacciones.update');
+Route::post('/transacciones/destroy{tra_id}', 'transaccionesController@destroy')->name('transacciones.destroy');
