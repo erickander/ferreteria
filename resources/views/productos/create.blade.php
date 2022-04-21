@@ -11,7 +11,31 @@
    <h4 class="bg-dark text-white" align="center">Agregar productos</h4>
      <form action="{{route('productos.store')}}" method="POST" onsubmit="return validar()">
      	@csrf
-     	<p>
+         <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="pro_nombre" name="pro_nombre" placeholder="">
+  <label for="floatingInput">Nombre</label>
+</div>
+ <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="pro_calidad" name="pro_calidad" placeholder="">
+  <label for="floatingInput">Calidad</label>
+</div>
+ <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="pro_tamaño" name="pro_tamaño" placeholder="">
+  <label for="floatingInput">Tamaño</label>
+</div>
+ <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="pro_estado" name="pro_estado" placeholder="">
+  <label for="floatingInput">Estado</label>
+</div>
+ <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="pro_descripcion" name="pro_descripcion" placeholder="">
+  <label for="floatingInput">Descripccion</label>
+</div>
+ <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
+  <label for="floatingInput">Precio</label>
+</div>
+     	<!-- <p>
      <label>Nombre</label>
      <input type="text" name="pro_nombre" id="pro_nombre">
  </p>
@@ -34,8 +58,10 @@
  <p>
      <label>Precio</label>
      <input type="text" id="pro_precio" name="pro_precio">
- </p>
-     <button type="submit" class="btn btn-success">Guardar</button>
+ </p> -->
+    <div class="d-grid gap-2 col-2 mx-auto">
+     <button type="submit" style="background:#c4ffff " class="btn ">Guardar</button>
+     </div>
      </form>
    </div>
  </div>

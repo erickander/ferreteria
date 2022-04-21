@@ -13,7 +13,7 @@
                 <h3 for="">Concepto</h3>
                      <select name="usu_id" id="usu_id" class="form-control">
                          <option value="">Elige Una Opcion</option>
-                         @foreach($User as $u)
+                         @foreach($users as $u)
                          <option value=" {{$u->usu_id}}"> {{$u->usu_name}} </option>
 
                          @endforeach

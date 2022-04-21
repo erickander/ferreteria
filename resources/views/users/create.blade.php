@@ -6,12 +6,43 @@
 <div class="container">
          <div class="row">
             <div class="col-md-9">
-                <div class="card mb-6 border-info">
+                <div class="card mb-6 ">
                     <div class="card-body">
    <h4 class="bg-dark text-white" align="center">Rgistros de Usuarios</h4>
      <form action="{{route('users.store')}}" method="POST" onsubmit="return validar()">
         @csrf
-        <p>
+        <div class="form-floating mb-3">
+  <input type="text" class="form-control" id="usu_name" name="usu_name" placeholder="">
+  <label for="floatingInput">Nombre</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="usu_email" name="usu_email" placeholder="">
+  <label for="floatingInput">Correo Electronico</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="usu_cedula" name="usu_cedula" placeholder="">
+  <label for="floatingInput">Cedula</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="usu_ruc" name="usu_ruc" placeholder="">
+  <label for="floatingInput">Ruc</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="usu_direccion" name="usu_direccion" placeholder="">
+  <label for="floatingInput">Direccion</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="usu_telefono" name="usu_telefono" placeholder="">
+  <label for="floatingInput">Telefono</label>
+</div>
+<div class="form-floating mb-3">
+  <input type="text" class="form-control" id="password" name="password" placeholder="">
+  <label for="floatingInput">Contraseña</label>
+</div>
+<div class="d-grid gap-2 col-2 mx-auto">
+     <button type="submit" style="background:#c0a0c3 " class="btn ">Guardar</button>
+     </div>
+<!--         <p>
      <label>Nombre</label>
      <input type="text" name="usu_name" id="usu_name">
  </p>
@@ -40,7 +71,7 @@
      <input type="password" id="password" name="password">
  </p>
 
-     <button type="submit" class="btn btn-success">Guardar</button>
+     <button type="submit" class="btn btn-success">Guardar</button> -->
      </form>
    </div>
  </div>

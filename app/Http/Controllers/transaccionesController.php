@@ -53,7 +53,7 @@ class transaccionesController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
-        $data['usu_id']=Auth::user()->usu_id;
+        $data['usu_id']=Auth::User()->usu_id;
         Transacciones::create($data);
         return redirect(route('transacciones'));
     }
@@ -78,6 +78,7 @@ class transaccionesController extends Controller
     public function edit($id)
     {
         $Transacciones=Transacciones::find($id);
+        $User=User::all();
          return view("transacciones.edit")
          ->with('transacciones',$Transacciones);
     }
