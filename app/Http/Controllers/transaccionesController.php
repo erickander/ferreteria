@@ -41,7 +41,12 @@ class transaccionesController extends Controller
     public function create()
     {
         $User=User::all();
-        return view ('transacciones.create')->with('users',$User);
+        $productos=productos::all();
+        $clientes=clientes::all();
+        return view ('transacciones.create')
+        ->with('users',$User)
+        ->with('productos',$productos)
+        ->with('clientes',$clientes);
     }
 
     /**
@@ -52,6 +57,7 @@ class transaccionesController extends Controller
      */
     public function store(Request $request)
     {
+
         $data=$request->all();
         $data['usu_id']=Auth::User()->usu_id;
         Transacciones::create($data);

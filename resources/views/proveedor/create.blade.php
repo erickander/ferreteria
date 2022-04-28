@@ -42,7 +42,7 @@
   <label for="floatingInput">Fecha</label>
 </div>
 <div class="d-grid gap-2 col-2 mx-auto">
-     <button type="submit" style="background:#f0d2d3 " class="btn btn-outline-light">Guardar</button>
+     <button type="submit" style="background:#eaccad " class="btn btn-outline-light">Guardar</button>
      </div>
 
      	<!-- 

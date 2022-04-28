@@ -10,6 +10,7 @@
                     <div class="card-body">
 <script src="{{asset('js/permisos.js')}}"></script>
 
+     <table class="table table- table-striped" style="background:#eaccad">
    <h4 class="bg-dark text-white" align="center">Registrar Permisos</h4>
      <form action="{{route('permisos.store')}}" method="POST" onsubmit="return validar()">
      	@csrf

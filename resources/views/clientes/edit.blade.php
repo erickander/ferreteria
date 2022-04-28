@@ -9,8 +9,37 @@
     <form action="{{route('clientes.update',$clientes->cli_id)}}" method="POST">
      	@csrf
      	
-     <label>Registro De Clientes</label>
-     <p>
+     <label>
+        <h3>Registro De Clientes</h3>
+        </label>
+        <div class="form-floating mb-3">
+  <input type="text" value="{{$clientes->cli_nombre}}" class="form-control" id="cli_nombre" name="cli_nombre" placeholder="">
+  <label for="floatingInput">Nombre</label>
+</div>
+   <div class="form-floating mb-3">
+  <input type="text" value="{{$clientes->cli_apellido}}" class="form-control" id="cli_apellido" name="cli_apellido" placeholder="">
+  <label for="floatingInput">Apellido</label>
+</div>
+   <div class="form-floating mb-3">
+  <input type="text" value="{{$clientes->cli_cedula}}" class="form-control" id="cli_cedula" name="cli_cedula" placeholder="">
+  <label for="floatingInput">Cedula</label>
+</div>
+   <div class="form-floating mb-3">
+  <input type="text" value="{{$clientes->cli_email}}" class="form-control" id="cli_email" name="cli_email" placeholder="">
+  <label for="floatingInput">Correo Electronico</label>
+</div>
+   <div class="form-floating mb-3">
+  <input type="text" value="{{$clientes->cli_direccion}}" class="form-control" id="cli_direccion" name="cli_direccion" placeholder="">
+  <label for="floatingInput">Direccion</label>
+</div>
+   <div class="form-floating mb-3">
+  <input type="text" value="{{$clientes->cli_telefono}}" class="form-control" id="cli_telefono" name="cli_telefono" placeholder="">
+  <label for="floatingInput">Telefono</label>
+</div>
+<div class="d-grid gap-2 col-2 mx-auto">
+     <button type="submit" style="background:#c4ffff " class="btn ">Guardar</button>
+     </div>
+    <!--  <p>
      <input type="text" value="{{$clientes->cli_nombre}}" name="cli_nombre" id="cli_nombre">
  </p>
  <p>
@@ -31,7 +60,7 @@
     </p>
     <p>
      <button class="btn btn-success">Guardar</button>
-     </p>
+     </p> -->
      </form>
  </div>
 </div>

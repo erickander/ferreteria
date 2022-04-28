@@ -5,12 +5,36 @@
             <div class="col-md-9">
                 <div class="card mb-6 border-info">
                     <div class="card-body">
-<h4 class="bg-dark text-white" align="center">Editar productos</h4>
+<h2 class="bg-dark text-white" align="center">Editar productos</h2>
     <form action="{{route('productos.update',$productos->pro_id)}}" method="POST">
      	@csrf
      	
-     <label>Detalle de la categoria</label>
-     <p>
+     <label>
+    <h3> Detalle de los Productos</h3>
+ </label>
+     <div class="form-floating mb-3">
+  <input type="text" value="{{$productos->pro_nombre}}" class="form-control" id="pro_nombre" name="pro_nombre" placeholder="">
+  <label for="floatingInput">Nombre</label>
+</div><div class="form-floating mb-3">
+  <input type="text" value="{{$productos->pro_calidad}}" class="form-control" id="pro_calidad" name="pro_calidad" placeholder="">
+  <label for="floatingInput">Calidad</label>
+</div><div class="form-floating mb-3">
+  <input type="text" value="{{$productos->pro_tamaño}}" class="form-control" id="pro_tamaño" name="pro_tamaño" placeholder="">
+  <label for="floatingInput">Tamaño</label>
+</div><div class="form-floating mb-3">
+  <input type="text" value="{{$productos->pro_estado}}" class="form-control" id="pro_estado" name="pro_estado" placeholder="">
+  <label for="floatingInput">Estado</label>
+</div><div class="form-floating mb-3">
+  <input type="text" value="{{$productos->pro_descripcion}}" class="form-control" id="pro_descripcion" name="pro_descripcion" placeholder="">
+  <label for="floatingInput">Descripcion</label>
+</div><div class="form-floating mb-3">
+  <input type="text" value="{{$productos->pro_precio}}" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
+  <label for="floatingInput">Precio</label>
+</div>
+ <div class="d-grid gap-2 col-2 mx-auto">
+     <button type="submit" style="background:#c4ffff " class="btn ">Guardar</button>
+     </div>
+     <!-- <p>
      <input type="text" value="{{$productos->pro_nombre}}" name="pro_nombre" id="pro_nombre">
  </p>
  <p>
@@ -31,7 +55,7 @@
     </p>
     <p>
      <button class="btn btn-success">Guardar</button>
-     </p>
+     </p> -->
      </form>
  </div>
 </div>
