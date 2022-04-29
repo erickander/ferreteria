@@ -43,6 +43,7 @@
 
 
         </select> 
+        <p>
       <div class="form-floating mb-3">
   <input type="date" class="form-control" id="tra_fecha" name="tra_fecha" placeholder="">
   <label for="floatingInput">Fecha</label>
@@ -53,19 +54,19 @@
 </div>
 <div class="form-floating mb-3">
   <input type="text" class="form-control" id="tra_subtotal" name="tra_subtotal" placeholder="">
-  <label for="floatingInput">Nombre</label>
+  <label for="floatingInput">subtotal</label>
 </div>
 <div class="form-floating mb-3">
   <input type="text" class="form-control" id="tra_iva" name="tra_iva" placeholder="">
-  <label for="floatingInput">Nombre</label>
+  <label for="floatingInput">Iva</label>
 </div>
 <div class="form-floating mb-3">
   <input type="text" class="form-control" id="tra_descuento" name="tra_descuento" placeholder="">
-  <label for="floatingInput">Nombre</label>
+  <label for="floatingInput">Descuento</label>
 </div>
 <div class="form-floating mb-3">
   <input type="text" class="form-control" id="tra_total" name="tra_total" placeholder="">
-  <label for="floatingInput">Nombre</label>
+  <label for="floatingInput">Total</label>
 </div>
 
 <div class="d-grid gap-2 col-2 mx-auto">
