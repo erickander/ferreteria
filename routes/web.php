@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/catalogo', 'catalogoController@index')->name('catalogo');
  
 //permisos
 Route::get('/permisos', 'permisosController@index')->name('permisos');
@@ -70,3 +71,6 @@ Route::post('/transacciones/store', 'transaccionesController@store')->name('tran
 Route::get('/transacciones/edit/{tra_id}', 'transaccionesController@edit')->name('transacciones.edit');
 Route::post('/transacciones/update{tra_id}', 'transaccionesController@update')->name('transacciones.update');
 Route::post('/transacciones/destroy{tra_id}', 'transaccionesController@destroy')->name('transacciones.destroy');
+//factura
+Route::resource('factura','facturaController');
+Route::post('/factura/destroy{fac_id}', 'transaccionesController@destroy')->name('factura.destroy');
