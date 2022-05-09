@@ -11,7 +11,7 @@ class factura extends Model
     protected $primaryKey='fac_id';
     protected $fillable = [
         'fac_fecha',
-        'fac_nombre',
+        'fac_numero_de_factura',
         'fac_total',
         'fac_iva',
         'fac_descuento',

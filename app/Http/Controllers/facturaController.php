@@ -5,6 +5,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\factura;
 use App\Clientes;
+use App\Productos;
 class facturaController extends Controller
 {
     /**
@@ -30,9 +31,17 @@ class facturaController extends Controller
      */
     public function create()
     {
+        $factura=DB::select("
+            SELECT * FROM Factura f 
+             JOIN clientes c 
+            ON f.cli_id=c.cli_id
+             ");
+
         $clientes=clientes::all();
+        $productos=productos::all();
         return view ('factura.create')
-        ->with('clientes',$clientes);
+        ->with('clientes',$clientes)
+        ->with('productos',$productos);
     }
 
     /**
@@ -44,8 +53,8 @@ class facturaController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
-        factura::create($data);
-        return redirect(route('factura.store'));
+        $factura=factura::create($data);
+        return redirect(route('factura.edit',$factura->fac_id));
     }
 
     /**
@@ -68,9 +77,12 @@ class facturaController extends Controller
     public function edit($id)
     {
         $factura=factura::find($id);
-        $Clientes=Clientes::all();
+        $clientes=clientes::all();
+         $productos=productos::all();
          return view("factura.edit")
-         ->with('factura',$factura);
+         ->with('factura',$factura)
+         ->with('clientes',$clientes)
+          ->with('productos',$productos);
     }
 
     /**

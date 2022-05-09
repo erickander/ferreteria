@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header" align="center">
             <h2 class="text-danger"> <strong>Bievenidos</strong></h2>
@@ -16,7 +16,7 @@
                     @endif
                     
                     <div class="card mb-3">
-  <img src="https://i.pinimg.com/474x/ca/06/35/ca06351da873b80ba5956f769140d519.jpg" alt="...">
+  <img src="https://i.pinimg.com/474x/ca/06/35/ca06351da873b80ba5956f769140d519.jpg" width="700" height="600" alt="...">
   <div class="card-body">
     <h3 class="card-title" align="center">FERRETERIA VIDA NUEVA</h3>
     <p class="card-text">

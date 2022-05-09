@@ -13,7 +13,7 @@ class FacturaSeeder extends Seeder
     {
         DB::table('Factura')->insert([ 
 
-          'fac_nombre'=>'Maria',
+          'fac_numero_de_factura'=>'001',
           'fac_fecha'=>date('Y-m-d'),
           'fac_total'=>50,
           'fac_iva'=>12,

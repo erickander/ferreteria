@@ -10,7 +10,7 @@
 </svg> Nuevo</a>
      <th> # </th>
      <th> Cliente </th>
-     <th>Nombre</th>
+     <th>Numero De Factura</th>
      <th>Fecha</th>
      <th>Iva</th>
      <th>Descuento</th>
@@ -26,7 +26,7 @@
    <tr> 
      <td>{{$loop->iteration }}</td>
      <td>{{$fac->cli_nombre }}</td>
-     <td>{{$fac->fac_nombre}}</td>
+     <td>{{$fac->fac_numero_de_factura}}</td>
      <td>{{$fac->fac_fecha }}</td>
      <td>{{$fac->fac_iva}}%</td>
      <td>{{$fac->fac_descuento }}%</td>

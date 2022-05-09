@@ -73,4 +73,3 @@ Route::post('/transacciones/update{tra_id}', 'transaccionesController@update')->
 Route::post('/transacciones/destroy{tra_id}', 'transaccionesController@destroy')->name('transacciones.destroy');
 //factura
 Route::resource('factura','facturaController');
-Route::post('/factura/destroy{fac_id}', 'transaccionesController@destroy')->name('factura.destroy');
