@@ -15,12 +15,12 @@ if (isset($factura)) {
   $fac_id="";
   $cli_id="";
   $fac_numero_de_factura="";
-  $fac_fecha="";
-  $fac_iva="";
-  $fac_descuento="";
+  $fac_fecha=date("Y-m-d");
+  $fac_iva=0;
+  $fac_descuento=0;
   $fac_observaciones="";
   $fac_estado="";
-  $fac_total="";
+  $fac_total=0;
 }
 
  ?>
@@ -37,8 +37,11 @@ if (isset($factura)) {
                      <select name="cli_id" id="cli_id" class="form-control">
                          <option value="">Elije un Cliente</option>
                          @foreach($clientes as $c)
+                         @if($c->cli_id==$cli_id)
+                         <option selected value=" {{$c->cli_id}}"> {{$c->cli_nombre}} </option>
+                         @else
                          <option value=" {{$c->cli_id}}"> {{$c->cli_nombre}} </option>
-
+                         @endif
                          @endforeach
 
 
@@ -77,7 +80,10 @@ if (isset($factura)) {
      </div>
 
      </form>
+
      <p>
+      <form action="{{route('factura.detalle')}}" method="POST">
+        @csrf
      <div class="container">
 <h4 class="bg-dark text-white" align="center">Detalle</h4>      
 
@@ -92,8 +98,10 @@ if (isset($factura)) {
      <th>...</th>
    </tr>
    <td></td>
+      
      <td>
-       <input type="number" style="width:150px" class="form-control">
+      <input id="fac_id" name="fac_id" value="{{$fac_id}}" type="hidden">
+       <input type="number" name="dat_cantidad" id="dat_cantidad" style="width:150px" class="form-control">
      </td>
      <td>
       <select name="pro_id" id="pro_id" style="width: 200px" class="form-control">
@@ -104,14 +112,23 @@ if (isset($factura)) {
       </select>
      </td>
      <td>
-       <input type="number" style="width:100px" class="form-control">
+       <input type="number" name="dat_VU" id="dat_VU" style="width:100px" class="form-control">
      </td>
      <td>
-       <input type="text" style="width:100px" readonly="" class="form-control">
+       <input type="text" name="dat_VT" id="dat_VT" style="width:100px" readonly="" class="form-control">
      </td>
      <td>
-     <button type="submit" class="btn btn-info">+</button>
+     <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
    </td>
+   @foreach($detalle as $dat)
+   <tr>
+     <td>{{$loop->iteration }}</td>
+     <td>{{$dat->dat_cantidad }}</td>
+     <td>{{$dat->pro_nombre }}</td>
+     <td>{{$dat->fac_id }}</td>
+     <td>{{$dat->dat_VT }}</td>
+   </tr>
+   @endforeach
 
   </table>
 </div>
@@ -119,8 +136,6 @@ if (isset($factura)) {
  </div>
 </div>
 </div>
+</form>
 
 @endsection
-<script>
-  document.querySelector('$cli_id').value='{{$cli_id}}'
-</script>

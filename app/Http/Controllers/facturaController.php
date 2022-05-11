@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\factura;
 use App\Clientes;
 use App\Productos;
+use App\Detalle;
 class facturaController extends Controller
 {
     /**
@@ -79,10 +80,17 @@ class facturaController extends Controller
         $factura=factura::find($id);
         $clientes=clientes::all();
          $productos=productos::all();
+         $detalle=DB::select("
+            SELECT * FROM detalle_facturas fd 
+             JOIN productos p 
+            ON fd.pro_id=p.pro_id
+            WHERE fd.fac_id=$id
+             ");
          return view("factura.edit")
          ->with('factura',$factura)
          ->with('clientes',$clientes)
-          ->with('productos',$productos);
+          ->with('productos',$productos)
+          ->with('detalle',$detalle);
     }
 
     /**
@@ -109,5 +117,13 @@ class facturaController extends Controller
     {
         factura::destroy($id);
         return redirect(route('factura.destroy'));
+    }
+    public function detalle(Request $request)
+    {
+        $datos=$request->all();
+        $datos['dat_VT']=0;
+        $fac_id=$datos['fac_id'];
+        Detalle::create($datos);
+        return redirect(route('factura.edit',$fac_id));
     }
 }
