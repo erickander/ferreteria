@@ -120,6 +120,7 @@ if (isset($factura)) {
      <td>
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
    </td>
+   @isset($detalle)
    @foreach($detalle as $dat)
    <tr>
      <td>{{$loop->iteration }}</td>
@@ -127,8 +128,12 @@ if (isset($factura)) {
      <td>{{$dat->pro_nombre }}</td>
      <td>{{$dat->fac_id }}</td>
      <td>{{$dat->dat_VT }}</td>
+   <td><button class="btn btn-danger btn-sm" name="btn_eliminar" value="{{$dat->det_id}}">eliminar</button></td>
    </tr>
    @endforeach
+   @else
+   <tr><th colspan="5" class="alert alert-warning" >No Existen Datos</th> </tr>
+   @endisset
 
   </table>
 </div>

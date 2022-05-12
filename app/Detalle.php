@@ -8,7 +8,7 @@ class Detalle extends Model
 {
     public $timestamps=false;
     protected $table='detalle_facturas';
-    protected $primaryKey='dat_id';
+    protected $primaryKey='det_id';
     protected $fillable = [
         'pro_id',
         'fac_id',

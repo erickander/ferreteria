@@ -42,7 +42,8 @@ class facturaController extends Controller
         $productos=productos::all();
         return view ('factura.create')
         ->with('clientes',$clientes)
-        ->with('productos',$productos);
+        ->with('productos',$productos)
+        ;
     }
 
     /**
@@ -121,9 +122,18 @@ class facturaController extends Controller
     public function detalle(Request $request)
     {
         $datos=$request->all();
-        $datos['dat_VT']=0;
         $fac_id=$datos['fac_id'];
+        if (isset($datos['btn_detalle'])=='btn_detalle') {
+            //dd('etale');
+        $datos['dat_VT']=0;
         Detalle::create($datos);
+        }
+        if (isset($datos['btn_eliminar'])>0 ) {
+            //dd('eliminar');
+            $det_id=$datos['btn_eliminar'];
+            Detalle::destroy($det_id);
+
+         }
         return redirect(route('factura.edit',$fac_id));
     }
 }
