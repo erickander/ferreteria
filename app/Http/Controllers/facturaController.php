@@ -7,6 +7,7 @@ use App\factura;
 use App\Clientes;
 use App\Productos;
 use App\Detalle;
+use PDF;
 class facturaController extends Controller
 {
     /**
@@ -135,5 +136,22 @@ class facturaController extends Controller
 
          }
         return redirect(route('factura.edit',$fac_id));
+    }
+    public function factura_pdf ($fac_id)
+    {
+        $factura=DB::select("
+            SELECT * FROM factura f
+            JOIN clientes c ON c.cli_id=f.cli_id
+
+            WHERE f.fac_id=$fac_id
+            ");
+        $detalle=DB::select("
+            SELECT * FROM detalle_facturas d 
+            JOIN productos p ON p.pro_id=d.pro_id
+            WHERE d.fac_id=$fac_id
+            ");
+        //dd($factura);
+        $pdf=PDF::loadView('factura.pdf',['factura'=>$factura[0],'detalle'=>$detalle]);
+        return $pdf->stream('factura.pdf');
     }
 }

@@ -121,7 +121,13 @@ if (isset($factura)) {
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
    </td>
    @isset($detalle)
+   <?php 
+   $subt=0;
+    ?>
    @foreach($detalle as $dat)
+   <?php 
+   $subt+=$dat->dat_VT;
+    ?>
    <tr>
      <td>{{$loop->iteration }}</td>
      <td>{{$dat->dat_cantidad }}</td>
