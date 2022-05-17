@@ -126,7 +126,6 @@ class facturaController extends Controller
         $fac_id=$datos['fac_id'];
         if (isset($datos['btn_detalle'])=='btn_detalle') {
             //dd('etale');
-        $datos['dat_VT']=0;
         Detalle::create($datos);
         }
         if (isset($datos['btn_eliminar'])>0 ) {

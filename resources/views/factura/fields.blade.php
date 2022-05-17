@@ -16,8 +16,8 @@ if (isset($factura)) {
   $cli_id="";
   $fac_numero_de_factura="";
   $fac_fecha=date("Y-m-d");
-  $fac_iva=0;
-  $fac_descuento=0;
+  $fac_iva=12;
+  $fac_descuento="";
   $fac_observaciones="";
   $fac_estado="";
   $fac_total=0;
@@ -120,33 +120,84 @@ if (isset($factura)) {
      <td>
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
    </td>
-   @isset($detalle)
-   <?php 
-   $subt=0;
-    ?>
-   @foreach($detalle as $dat)
-   <?php 
-   $subt+=$dat->dat_VT;
-    ?>
-   <tr>
-     <td>{{$loop->iteration }}</td>
-     <td>{{$dat->dat_cantidad }}</td>
-     <td>{{$dat->pro_nombre }}</td>
-     <td>{{$dat->fac_id }}</td>
-     <td>{{$dat->dat_VT }}</td>
-   <td><button class="btn btn-danger btn-sm" name="btn_eliminar" value="{{$dat->det_id}}">eliminar</button></td>
-   </tr>
-   @endforeach
-   @else
-   <tr><th colspan="5" class="alert alert-warning" >No Existen Datos</th> </tr>
-   @endisset
+    @isset($detalle)
+     <?php 
+        $subt=0;
+     ?>
+           @foreach($detalle as $dat)
+
+           <?php 
+           $subt+=$dat->dat_VT;
+           ?>
+              <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$dat->dat_cantidad}}</td>
+                <td>{{$dat->pro_descripcion}}</td>
+                <td class="text-right">{{number_format($dat->dat_VU,2)}}$</td>
+                <td class="text-right">{{number_format($dat->dat_VT,2)}}$</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" name="btn_eliminar" value="{{$dat->det_id}}" >Del</button>
+                </td>
+              </tr>
+           @endforeach
+           <?php 
+           $desc=$fac_descuento*$subt;
+           $fva=$subt*0.12;
+              $vt=($subt-$desc)+$fva;
+           ?>
+           <tr>
+                <td colspan="4" class="text-right">Subt:</td>
+                <td class="text-right">{{number_format($subt,2)}}$</td>
+           </tr>
+           <tr>
+                <td colspan="4" class="text-right">Desc:</td>
+                <td class="text-right">{{number_format($desc,2)}}$</td>
+           </tr>
+           <tr>
+                <td colspan="4" class="text-right">IVA:</td>
+                <td class="text-right">{{number_format($fva,2)}}$</td>
+           </tr>
+           <tr>
+                <td colspan="4" class="text-right">VT:</td>
+                <td class="text-right">{{number_format($vt,2)}}$</td>
+           </tr>
+        @else
+        <tr><th colspan="5" class="alert alert-warning">No existen datos</th></tr>
+        @endisset
 
   </table>
-</div>
-</div>
- </div>
-</div>
+</form>
+<script>
+window.onload = function(){
+      const obj_cant=document.querySelector("#dat_cantidad");
+      const obj_vu=document.querySelector("#dat_VU");
+      obj_cant.addEventListener("change",()=>{
+        calculos();
+      });
+      obj_vu.addEventListener("change",()=>{
+        calculos();
+      });
+
+}
+
+const calculos=()=>{
+        const vc=document.querySelector("#dat_cantidad");
+        const vu=document.querySelector("#dat_VU");
+        const vt=vc.value*vu.value;
+        document.querySelector("#dat_VT").value=vt;
+
+}
+
+</script>
 </div>
 </form>
-
+</p>
+</p>
+</form>
 @endsection
+
+
+
+
+
+
