@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+<script src="{{asset('js/users.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div class="card mb-6 ">
@@ -16,7 +17,7 @@
   <label for="floatingInput">Nombre</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="usu_email" name="usu_email" placeholder="">
+  <input type="email" class="form-control" id="usu_email" name="usu_email" placeholder="">
   <label for="floatingInput">Correo Electronico</label>
 </div>
 <div class="form-floating mb-3">
@@ -36,7 +37,7 @@
   <label for="floatingInput">Telefono</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="password" name="password" placeholder="">
+  <input type="password" class="form-control" id="password" name="password" placeholder="">
   <label for="floatingInput">Contraseña</label>
 </div>
 <div class="d-grid gap-2 col-2 mx-auto">

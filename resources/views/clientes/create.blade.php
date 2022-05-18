@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 
-
+ 
 @section('content')
 <div class="container">
+  <script src="{{asset('js/clientes.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div class="card mb-6 border-dark">
@@ -20,7 +21,7 @@
   <label for="floatingInput">Apellido</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="cli_email" name="cli_email" placeholder="">
+  <input type="email" class="form-control" id="cli_email" name="cli_email" placeholder="">
   <label for="floatingInput">Correo Electronico</label>
 </div>
 <div class="form-floating mb-3">

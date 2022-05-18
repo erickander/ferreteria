@@ -18,10 +18,9 @@
   <input type="text" class="form-control" id="per_tipo" name="per_tipo" placeholder="">
   <label for="floatingInput">Permisos</label>
 </div>
-     <!-- <label>Permiso</label>
-     <input type="text" name="per_tipo" id="per_tipo"> -->
-    <div class="d-grid gap-2 col-2 mx-auto">
-     <button type="submit" style="background:#c4ffff " class="btn ">Guardar</button>
+    
+     <div class="d-grid gap-2 col-2 mx-auto">
+     <button type="submit" style="background:#c4ffff " class="btn">Guardar</button>
      </div>
      </form>
    </div>

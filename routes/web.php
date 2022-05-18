@@ -75,5 +75,5 @@ Route::post('/transacciones/destroy{tra_id}', 'transaccionesController@destroy')
 Route::resource('factura','facturaController');
 Route::post('/factura.detalle', 'facturaController@detalle')->name('factura.detalle');
 Route::get('/factura.pdf/{fac_id}','facturaController@factura_pdf')->name('factura.pdf');
-
+Route::get('/factura.anular/{fac_id}','facturaController@factura_anular')->name('factura.anular');
 

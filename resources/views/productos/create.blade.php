@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+  <script src="{{asset('js/productos.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div class="card mb-6 border-info">
@@ -32,7 +33,10 @@
   <label for="floatingInput">Descripccion</label>
 </div>
  <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
+  <input type="number" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
+  <div style="background: #f89af5" class="alert" role="alert">
+  registre numeros
+</div>
   <label for="floatingInput">Precio</label>
 </div>
      	<!-- <p>

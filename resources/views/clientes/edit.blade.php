@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <script src="{{asset('js/clientes.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div class="card mb-6 border-info">
                     <div class="card-body">
 <h4 class="bg-dark text-white" align="center">Registro</h4>
-    <form action="{{route('clientes.update',$clientes->cli_id)}}" method="POST">
+    <form action="{{route('clientes.update',$clientes->cli_id)}}" method="POST" onsubmit="return validar()">
      	@csrf
      	
      <label>

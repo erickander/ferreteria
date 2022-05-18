@@ -6,7 +6,7 @@
                 <div class="card mb-6 border-info">
                     <div class="card-body">
 <h2 class="bg-dark text-white" align="center">Editar productos</h2>
-    <form action="{{route('productos.update',$productos->pro_id)}}" method="POST">
+    <form action="{{route('productos.update',$productos->pro_id)}}" method="POST"  onsubmit="return validar()">
      	@csrf
      	
      <label>
@@ -28,7 +28,7 @@
   <input type="text" value="{{$productos->pro_descripcion}}" class="form-control" id="pro_descripcion" name="pro_descripcion" placeholder="">
   <label for="floatingInput">Descripcion</label>
 </div><div class="form-floating mb-3">
-  <input type="text" value="{{$productos->pro_precio}}" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
+  <input type="number" value="{{$productos->pro_precio}}" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
   <label for="floatingInput">Precio</label>
 </div>
  <div class="d-grid gap-2 col-2 mx-auto">
@@ -59,4 +59,4 @@
      </form>
  </div>
 </div>
-@endsection
+@endsection  <script src="{{asset('js/productos.js')}}" ></script>

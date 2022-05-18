@@ -25,11 +25,12 @@ if (isset($factura)) {
 
  ?>
 <div class="container">
+  <script src="{{asset('js/factura.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div style="width:900px" class="card mb-6 border-dark">
                     <div class="card-body">
-   <h4 class="bg-dark text-white" align="center">Facturaciòn</h4>
+   <h4 class="bg-dark text-white" align="center">Facturación</h4>
       <form action="{{route('factura.store')}}" method="POST" onsubmit="return validar()">
 
         @csrf

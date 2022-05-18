@@ -38,6 +38,7 @@ class permisosController extends Controller
     public function store(Request $request)
     {
         $data=$request->all();
+        dd($data);
         permisos::create($data);
         return redirect(route('permisos'));
     }

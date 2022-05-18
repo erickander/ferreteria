@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+   <script src="{{asset('js/proveedor.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div class="card mb-6 border-info">

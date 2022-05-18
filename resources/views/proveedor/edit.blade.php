@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+  <script src="{{asset('js/proveedor.js')}}" ></script>
          <div class="row">
             <div class="col-md-9">
                 <div class="card mb-6 border-info">
                     <div class="card-body">
 <h4 class="bg-dark text-white" align="center">Editar proveedor</h4>
-    <form action="{{route('proveedor.update',$proveedor->dor_id)}}" method="POST">
+    <form action="{{route('proveedor.update',$proveedor->dor_id)}}" method="POST"onsubmit="return validar()">
      	@csrf
      	
      <label>Detalle de la categoria</label>
