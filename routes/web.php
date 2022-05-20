@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/catalogo', 'catalogoController@index')->name('catalogo');
+Route::post('/factura/search','facturaController@index')->name('factura.search');
  
 //permisos
 Route::get('/permisos', 'permisosController@index')->name('permisos');

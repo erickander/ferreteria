@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\inventario;
 use Illuminate\Http\Request;
 
 class inventarioController extends Controller
@@ -13,7 +13,9 @@ class inventarioController extends Controller
      */
     public function index()
     {
-        //
+       $inventario=inventario::all();
+        return view('inventario.index')
+        ->with('inventario',$inventario);
     }
 
     /**
@@ -23,8 +25,7 @@ class inventarioController extends Controller
      */
     public function create()
     {
-        //
-    }
+        return view ('inventario.create');    }
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +35,10 @@ class inventarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $data=$request->all();
+        //dd($data);
+        inventario::create($data);
+        return redirect(route('inventario'));
     }
 
     /**
@@ -45,7 +49,7 @@ class inventarioController extends Controller
      */
     public function show($id)
     {
-        //
+      // 
     }
 
     /**
@@ -56,7 +60,9 @@ class inventarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inventario=inventario::find($id);
+         return view("inventario.edit")
+         ->with('inventario',$inventario);    
     }
 
     /**
@@ -68,7 +74,9 @@ class inventarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $ive=inventario::find($id);
+        $ive->update($request->all());
+        return redirect(route('inventario')); 
     }
 
     /**
@@ -79,6 +87,7 @@ class inventarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        inventario::destroy($id);
+        return redirect(route('inventario'));
     }
 }

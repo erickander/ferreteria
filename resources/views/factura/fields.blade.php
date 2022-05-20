@@ -83,11 +83,11 @@ if (isset($factura)) {
      </form>
 
      <p>
-      <form action="{{route('factura.detalle')}}" method="POST">
+      <form action="{{route('factura.detalle')}}" method="POST" onsubmit="return validar()">
         @csrf
      <div class="container">
 <h4 class="bg-dark text-white" align="center">Detalle</h4>      
-
+ <script src="{{asset('js/detalle.js')}}" ></script>
   <table class="table">
     
 <tr>

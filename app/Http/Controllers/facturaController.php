@@ -8,6 +8,7 @@ use App\Clientes;
 use App\Productos;
 use App\Detalle;
 use PDF;
+use Auth;
 class facturaController extends Controller
 {
     /**
@@ -15,15 +16,31 @@ class facturaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        $factura=DB::select("
+        //dd(Auth::user()->usu_id);
+        //dd('ok');
+        $data=$req->all();
+        $desde=date('Y-m-d');
+        $hasta=date('Y-m-d');
+
+        if(isset($data['desde'])){ 
+            $desde=$data['desde'];
+            $hasta=$data['hasta'];
+        }
+
+        $sql="  
             SELECT * FROM Factura f 
              JOIN clientes c 
             ON f.cli_id=c.cli_id
-             ");
+             WHERE f.fac_fecha BETWEEN '$desde' AND '$hasta' 
+             ";
+        $factura=DB::select($sql);
         return view('factura.index')
-        ->with('factura',$factura);
+        ->with('factura',$factura)
+        ->with('desde',$desde)
+        ->with('hasta',$hasta)
+        ;
     }
 
     /**
@@ -118,6 +135,8 @@ class facturaController extends Controller
     public function destroy($id)
     {
         factura::destroy($id);
+        detalle::destroy($id);
+         //dd($id);
         return redirect(route('factura.destroy'));
     }
     public function detalle(Request $request)

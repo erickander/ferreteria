@@ -32,7 +32,7 @@
   <label for="floatingInput">Precio</label>
 </div>
  <div class="d-grid gap-2 col-2 mx-auto">
-     <button type="submit" style="background:#c4ffff " class="btn ">Guardar</button>
+     <button type="submit" style="background:#c4ffff " class="btn "> Guardar</button>
      </div>
      <!-- <p>
      <input type="text" value="{{$productos->pro_nombre}}" name="pro_nombre" id="pro_nombre">

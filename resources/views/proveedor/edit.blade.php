@@ -35,7 +35,7 @@
   <label for="floatingInput">Fecha</label>
 </div>
  <div class="d-grid gap-2 col-2 mx-auto">
-     <button type="submit" style="background:#9e3b42 " class="btn ">Guardar</button>
+     <button type="submit" style="background:#9e3b42 " class="btn "> Guardar</button>
      </div>
     <!--  <p>
      <input type="text" value="{{$proveedor->dor_nombre}}" name="dor_nombre" id="dor_nombre">

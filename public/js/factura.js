@@ -73,31 +73,5 @@ const validar=()=>{
  return false;
 
       }
-               if (dat_cantidad.value.length==0) {
-        Swal.fire({
-  icon: 'error',
-  title: 'Error',
-  text: 'Campo Obligatorio!',
-});              
- return false;
-
-      }
-               if (dat_VU.value.length==0) {
-        Swal.fire({
-  icon: 'error',
-  title: 'Error',
-  text: 'Campo Obligatorio!',
-});              
- return false;
-
-      }
-               if (pro_id.value.length==0) {
-        Swal.fire({
-  icon: 'error',
-  title: 'Error',
-  text: 'Campo Obligatorio!',
-});              
- return false;
-
-      }
 }  
+

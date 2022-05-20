@@ -6,6 +6,5 @@
 <div class="container">
  
   @include('factura.fields')
-</div>
-
+</div> 
 @endsection

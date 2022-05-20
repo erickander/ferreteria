@@ -16,7 +16,7 @@
   <label for="floatingInput">Permisos</label>
 </div>
    <div class="d-grid gap-2 col-2 mx-auto">
-     <button type="submit" style="background:#c4ffff " class="btn">Guardar</button>
+     <button type="submit" style="background:#c4ffff " class="btn" >Guardar</button>
      </div>
    <!--   <input type="text" value="{{$permisos->per_tipo}}" name="per_tipo" id="per_tipo"> -->
   <!--    <button class="btn btn-success">Guardar</button> -->
