@@ -13,7 +13,7 @@
      <form action="{{route('users.store')}}" method="POST" onsubmit="return validar()">
         @csrf
         <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="usu_name" name="usu_name" placeholder="">
+  <input type="text" class="form-control" id="usu_name" step="auto" name="usu_name" placeholder="">
   <label for="floatingInput">Nombre</label>
 </div>
 <div class="form-floating mb-3">

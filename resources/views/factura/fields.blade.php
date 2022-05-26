@@ -102,10 +102,10 @@ if (isset($factura)) {
       
      <td>
       <input id="fac_id" name="fac_id" value="{{$fac_id}}" type="hidden">
-       <input type="number" name="dat_cantidad" id="dat_cantidad" style="width:150px" class="form-control">
+       <input type="number" name="dat_cantidad" id="dat_cantidad" required style="width:150px" class="form-control">
      </td>
      <td>
-      <select name="pro_id" id="pro_id" style="width: 200px" class="form-control">
+      <select name="pro_id" id="pro_id" style="width: 200px"required class="form-control">
         <option value="">Productos</option>
        @foreach($productos  as  $p)
         <option value="{{$p->pro_id}}">{{$p->pro_nombre}}</option>
@@ -113,10 +113,10 @@ if (isset($factura)) {
       </select>
      </td>
      <td>
-       <input type="number" name="dat_VU" id="dat_VU" style="width:100px" class="form-control">
+       <input type="number" name="dat_VU" id="dat_VU" required style="width:100px" class="form-control">
      </td>
      <td>
-       <input type="text" name="dat_VT" id="dat_VT" style="width:100px" readonly="" class="form-control">
+       <input type="text" name="dat_VT" id="dat_VT" required style="width:100px" readonly="" class="form-control">
      </td>
      <td>
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\factura;
 use App\Clientes;
 use App\Productos;
-use App\Detalle;
+use App\Detalle; 
 use PDF;
 use Auth;
 class facturaController extends Controller
@@ -29,13 +29,40 @@ class facturaController extends Controller
             $hasta=$data['hasta'];
         }
 
-        $sql="  
-            SELECT * FROM Factura f 
-             JOIN clientes c 
-            ON f.cli_id=c.cli_id
-             WHERE f.fac_fecha BETWEEN '$desde' AND '$hasta' 
-             ";
-        $factura=DB::select($sql);
+        // $factura=DB::select("  
+        //     SELECT * FROM Factura f 
+        //      JOIN clientes c 
+        //     ON f.cli_id=c.cli_id
+        //      WHERE f.fac_fecha BETWEEN '$desde' AND '$hasta' 
+        //      ");
+
+
+        $factura=DB::select("
+SELECT 
+f.fac_numero_de_factura,
+f.cli_id,
+f.fac_fecha,
+f.fac_id,
+f.fac_iva,
+f.fac_descuento,
+f.fac_estado,
+f.fac_observaciones,
+SUM(fd.dat_VT) AS total,
+c.*
+FROM factura f 
+JOIN clientes c ON f.cli_id=c.cli_id
+JOIN detalle_facturas fd ON f.fac_id=fd.fac_id
+WHERE f.fac_fecha BETWEEN '$desde' AND '$hasta' 
+GROUP BY f.fac_numero_de_factura,f.cli_id,f.fac_fecha,f.fac_id,f.fac_estado
+
+            ");
+
+        if(isset($data['btn_pdf'])){
+        $data=['factura'=>$factura];
+        $pdf=PDF::loadView('factura.reporte',$data);
+        return $pdf->stream('reporte.pdf');
+        }
+        
         return view('factura.index')
         ->with('factura',$factura)
         ->with('desde',$desde)
