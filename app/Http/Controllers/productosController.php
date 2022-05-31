@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\productos;
-
+use DB;
 class productosController extends Controller
 {
     /**
@@ -14,6 +14,7 @@ class productosController extends Controller
      */
     public function index()
     {
+       
         $productos=productos::all();
         return view('productos.index')
         ->with('productos',$productos);
@@ -89,7 +90,20 @@ class productosController extends Controller
      */
     public function destroy($id)
     {
-        productos::destroy($id);
-        return redirect(route('productos'));
+        $factura=DB::select("SELECT * FROM detalle_facturas where pro_id=$id");
+        if (empty($factura)) {
+             $sms="Eliminado Correctamente";
+             productos::destroy($id);
+
+        }else{
+           $sms="No se puede eliminar ya que tiene factura";
+        }
+         //Session::put('sms',$sms);
+        echo "<h1 style='background:red;color:white'>
+        $sms
+        <a href='".route('productos')."'>Volver a Productos</a>
+
+        </h1>";
+        //return redirect(route('productos',1));
     }
 }
