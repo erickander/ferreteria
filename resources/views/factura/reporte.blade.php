@@ -12,7 +12,7 @@
      <th><T>Total</T></th>
      <?php
 $t_saldo=0;
-
+ $x=1;
      ?>     
 @foreach($factura as $fac)
 
@@ -22,7 +22,7 @@ $t_saldo+=$fac->total;
  ?>
 <tr>
      
-     <td style="text-align: left;" >{{$loop->iteration }}</td>
+     <td style="text-align: left;" >{{$x++}}</td>
      <td style="text-align: center;">{{$fac->fac_numero_de_factura}}</td>
      <td style="text-align: center;" >{{$fac->cli_nombre}}</td>
       <td style="text-align: center;">{{$fac->fac_fecha}}</td>

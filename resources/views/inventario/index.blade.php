@@ -20,9 +20,9 @@
 
    <tr> 
      <td>{{$loop->iteration }}</td>
-     <td>{{$inv->usu_id}}</td>
-     <td>{{$inv->dor_id}}</td>
-     <td>{{$inv->pro_id }}</td>
+     <td>{{$inv->usu_name}}</td>
+     <td>{{$inv->dor_nombre}}</td>
+     <td>{{$inv->pro_nombre }}</td>
      <td>{{$inv->inv_cantidad}}</td>
      <td>{{$inv->inv_fecha }}</td>
      <td>

@@ -34,9 +34,9 @@
 </div>
  <div class="form-floating mb-3">
   <input type="number" class="form-control" id="pro_precio" step="auto" name="pro_precio" placeholder="">
-  <div style="background: #f89af5" class="alert" role="alert">
+ <!--  <div style="background: #f89af5" class="alert" role="alert">
   registre numeros
-</div>
+</div> -->
   <label for="floatingInput">Precio</label>
 </div>
      	<!-- <p>

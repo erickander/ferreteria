@@ -3,17 +3,27 @@
 namespace App\Http\Controllers;
 use App\inventario;
 use Illuminate\Http\Request;
+use DB;
+use Auth;
+use App\Proveedor;
+use App\User;
+use App\Productos;
 
 class inventarioController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-       $inventario=inventario::all();
+       $inventario=DB::select("
+            SELECT * FROM inventarios i
+            JOIN users u ON i.usu_id=u.usu_id
+            JOIN proveedor p ON i.dor_id=p.dor_id
+            JOIN productos t ON i.pro_id=t.pro_id
+             ");
         return view('inventario.index')
         ->with('inventario',$inventario);
     }
@@ -25,7 +35,16 @@ class inventarioController extends Controller
      */
     public function create()
     {
-        return view ('inventario.create');    }
+        // $users
+        // return view ('inventario.create'); 
+          $User=User::all();
+          $Productos=Productos::all();
+          $Proveedor=Proveedor::all();
+        return view ('inventario.create')
+        ->with('User',$User)
+        ->with('Productos',$Productos)
+        ->with('Proveedor',$Proveedor);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -61,8 +80,14 @@ class inventarioController extends Controller
     public function edit($id)
     {
         $inventario=inventario::find($id);
+        $User=User::all();
+        $Productos=Productos::all();
+        $Proveedor=Proveedor::all();
          return view("inventario.edit")
-         ->with('inventario',$inventario);    
+        ->with('inventario',$inventario)
+        ->with('User',$User)
+        ->with('Productos',$Productos)
+        ->with('Proveedor',$Proveedor);    
     }
 
     /**
@@ -74,8 +99,8 @@ class inventarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-          $ive=inventario::find($id);
-        $ive->update($request->all());
+          $inv=inventario::find($id);
+        $inv->update($request->all());
         return redirect(route('inventario')); 
     }
 
