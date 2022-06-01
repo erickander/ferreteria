@@ -36,10 +36,6 @@
   <input type="text" class="form-control" id="cli_telefono" name="cli_telefono" placeholder="">
   <label for="floatingInput">Telefono</label>
 </div>
-<div class="form-floating mb-3">
-  <input type="password" class="form-control" id="password" name="password" placeholder="">
-  <label for="floatingInput">Contraseña</label>
-</div>
 <div class="d-grid gap-2 col-2 mx-auto">
      <button type="submit" style="background:#c0a0c3 " class="btn ">Guardar</button>
      </div>

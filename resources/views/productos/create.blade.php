@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+ 
 
 @section('content')
 <div class="container">
@@ -17,16 +17,37 @@
   <label for="floatingInput">Nombre</label>
 </div>
  <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="pro_calidad" name="pro_calidad" placeholder="">
-  <label for="floatingInput">Calidad</label>
+  
+                     <select name="pro_calidad" id="pro_calidad" class="form-control">
+
+                       <option selected></option>
+                         <option >Alta</option>
+                         <option >Media</option>        
+                         <option>Baja</option>
+                     
+        </select>   
+          <label for="floatingInput">Calidad</label>
 </div>
  <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="pro_tamaño" name="pro_tamaño" placeholder="">
-  <label for="floatingInput">Tamaño</label>
-</div>
+  
+                     <select name="pro_tamaño" id="pro_tamaño" class="form-control">
+
+                       <option selected></option>
+                         <option >Grande</option>
+                         <option >Mediano</option>        
+                         <option>pequeño</option>
+                     
+        </select>   
+          <label for="floatingInput">Tamaño</label>
+        </div>
  <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="pro_estado" name="pro_estado" placeholder="">
-  <label for="floatingInput">Estado</label>
+  
+                     <select name="pro_estado" id="pro_estado" class="form-control">
+
+                       <option selected>stock</option>         
+                     
+        </select>  
+          <label for="floatingInput">Estado</label>
 </div>
  <div class="form-floating mb-3">
   <input type="text" class="form-control" id="pro_descripcion" name="pro_descripcion" placeholder="">

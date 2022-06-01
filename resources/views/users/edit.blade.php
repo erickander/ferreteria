@@ -32,6 +32,10 @@
   <input type="text" value="{{$users->usu_telefono}}" class="form-control" id="usu_telefono" name="usu_telefono" placeholder="">
   <label for="floatingInput">Telefono</label>
 </div>
+<div class="form-floating mb-3">
+  <input type="password" class="form-control" id="password" name="password" placeholder="">
+  <label for="floatingInput">Contraseña</label>
+</div>
      <div class="d-grid gap-2 col-2 mx-auto">
      <button type="submit" style="background:#c4ffff " class="btn ">Guardar</button>
      </div>

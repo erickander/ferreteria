@@ -19,7 +19,7 @@ if (isset($factura)) {
   $fac_iva=12;
   $fac_descuento="";
   $fac_observaciones="";
-  $fac_estado="";
+  $fac_estado=1;
   $fac_total=0;
 }
 
@@ -61,7 +61,7 @@ if (isset($factura)) {
   <label for="floatingInput">Iva</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" value="{{$fac_descuento}}" id="fac_descuento" name="fac_descuento" placeholder="">
+  <input type="number" class="form-control" value="{{$fac_descuento}}" id="fac_descuento" name="fac_descuento" placeholder="">
   <label for="floatingInput">Descuento</label>
 </div>
 <div class="form-floating mb-3">
@@ -102,10 +102,10 @@ if (isset($factura)) {
       
      <td>
       <input id="fac_id" name="fac_id" value="{{$fac_id}}" type="hidden">
-       <input type="number" name="dat_cantidad" id="dat_cantidad" required style="width:150px" class="form-control">
+       <input type="number" name="dat_cantidad" value="0" id="dat_cantidad" required style="width:150px" class="form-control">
      </td>
      <td>
-      <select name="pro_id" id="pro_id" style="width: 200px"required class="form-control">
+      <select name="pro_id" id="pro_id" value="0" style="width: 200px" class="form-control">
         <option value="">Productos</option>
        @foreach($productos  as  $p)
         <option value="{{$p->pro_id}}">{{$p->pro_nombre}}</option>
@@ -113,10 +113,10 @@ if (isset($factura)) {
       </select>
      </td>
      <td>
-       <input type="number" name="dat_VU" id="dat_VU" required style="width:100px" class="form-control">
+       <input type="number" name="dat_VU" id="dat_VU" value="0" required style="width:100px" class="form-control">
      </td>
      <td>
-       <input type="text" name="dat_VT" id="dat_VT" required style="width:100px" readonly="" class="form-control">
+       <input type="text" name="dat_VT" id="dat_VT" value="0" required style="width:100px" readonly="" class="form-control">
      </td>
      <td>
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
