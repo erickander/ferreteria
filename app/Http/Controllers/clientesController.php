@@ -92,7 +92,19 @@ class clientesController extends Controller
      */
     public function destroy($id)
     {
-        clientes::destroy($id);
-        return redirect(route('clientes'));
+        $factura=DB::select("SELECT * FROM factura where cli_id=$id");
+        if (empty($factura)) {
+             $sms="Eliminado Correctamente";
+             clientes::destroy($id);
+
+        }else{
+           $sms="No se puede eliminar ya que tiene factura";
+        }
+         //Session::put('sms',$sms);
+        echo "<h1 style='background:red;color:white'>
+        $sms
+        <a href='".route('clientes')."'>Volver a Clientes</a>
+
+        </h1>";
     }
-}
+} 

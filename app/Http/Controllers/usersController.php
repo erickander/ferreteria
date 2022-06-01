@@ -92,7 +92,19 @@ class usersController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
-        return redirect(route('users'));
+        $factura=DB::select("SELECT * FROM inventarios where usu_id=$id");
+        if (empty($factura)) {
+             $sms="Eliminado Correctamente";
+             User::destroy($id);
+
+        }else{
+           $sms="No se puede eliminar ya que tiene factura";
+        }
+         //Session::put('sms',$sms);
+        echo "<h1 style='background:red;color:white'>
+        $sms
+        <a href='".route('users')."'>Volver a Usuarios</a>
+
+        </h1>";
     }
 }

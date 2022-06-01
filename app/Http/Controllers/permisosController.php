@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\permisos;
+use DB;
 
 class permisosController extends Controller
 {
@@ -90,8 +91,20 @@ class permisosController extends Controller
      */
     public function destroy($id)
     {
-        permisos::destroy($id);
-        return redirect(route('permisos'));
+         $factura=DB::select("SELECT * FROM clientes where per_id=$id");
+        if (empty($factura)) {
+             $sms="Eliminado Correctamente";
+             permisos::destroy($id);
+
+        }else{
+           $sms="No se puede eliminar ya que tiene factura";
+        }
+         //Session::put('sms',$sms);
+        echo "<h1 style='background:red;color:white'>
+        $sms
+        <a href='".route('permisos')."'>Volver a permisos</a>
+
+        </h1>";
     }
 }
  

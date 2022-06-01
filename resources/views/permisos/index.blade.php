@@ -2,6 +2,9 @@
 @section('content')
 
 <table class="table table- table-striped" style="background:#dac9df ">
+   @if(!empty(Session::get('sms')))
+     <h3 class="alert alert-success">{{Session::get('sms')}}</h3>
+      @endif
      <th> # </th>
      <th> tipo </th>
       <a class="btn btn-info text-white" href="{{route('permisos.create')}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
