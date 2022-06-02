@@ -1,23 +1,13 @@
 //arrow funcion
 const validar=()=>{
-      const fac_id=document.querySelector("#fac_id");
-      if (fac_id.value.length==0) {
+      const dat_cantidad=document.querySelector("#dat_cantidad");
+      if (dat_cantidad.value.length==0) {
         Swal.fire({
   icon: 'error',
   title: 'Error',
   text: 'Campo Obligatorio!',
 });              
  return false;
-
-      }
-    if (dat_cantidad.value.length==0) {
-        Swal.fire({
-  icon: 'error',
-  title: 'Error',
-  text: 'Campo Obligatorio!',
-});              
- return false;
-
       }
       if (pro_id.value.length==0) {
         Swal.fire({

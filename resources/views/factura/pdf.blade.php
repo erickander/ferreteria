@@ -39,12 +39,19 @@ $fac_iva=$factura->fac_iva;
 		<th>Vt</th>
 	</tr>
 
-@foreach($detalle as $dat)
+
 <tr>
 	<?php 
         $subt=0;
-     ?>
-           <?php $subt+=$dat->dat_VT?>
+        ?>
+
+@foreach($detalle as $dat)
+      
+<?php
+      $subt+=$dat->dat_VT;
+
+
+      ?>
 	<td>{{$loop->iteration }}</td>
 	<td>{{$dat->dat_cantidad}}</td>
 	<td>{{$dat->pro_descripcion}}</td>

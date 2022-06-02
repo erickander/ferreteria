@@ -79,7 +79,7 @@ ascción preventiva contra la formación de moho y hongos.
 
 Acabado blanco mate.
 
-Acción prolongada en el tiemp...</h4>
+Acción prolongada en el tiempo</h4>
 
         </p>
       </div>
@@ -103,7 +103,7 @@ Acción prolongada en el tiemp...</h4>
       <div class="card-body">
         <h3 class="card-title">Nivel De Burbuja</h3>
         <p class="card-text">
-            <h4>ueden ser de material compuesto, metal o madera. Su cuerpo es ancho, asegurando así la estabilidad y la medición correcta de la horizontalidad del plano.
+            <h4>Pueden ser de material compuesto, metal o madera. Su cuerpo es ancho, asegurando así la estabilidad y la medición correcta de la horizontalidad del plano.
             </h4>
 
         </p>

@@ -39,7 +39,7 @@ if (isset($factura)) {
                          @if($c->cli_id==$cli_id)
                          <option selected value=" {{$c->cli_id}}"> {{$c->cli_nombre}} </option>
                          @else
-                         <option value="{{$c->cli_id}}"> {{$c->cli_nombre}} </option>
+                         <option selected value="{{$c->cli_id}}"> {{$c->cli_nombre}} </option>
                          @endif
                          @endforeach
 
@@ -67,7 +67,7 @@ if (isset($factura)) {
   <label for="floatingInput">Observaciones</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" value="{{$fac_total}}" readonly="" class="form-control" id="fac_total" name="fac_total" placeholder="">
+  <input type="" value="{{$fac_total}}" readonly="" class="form-control" id="fac_total" name="fac_total" placeholder="">
   <label for="floatingInput">Total</label>
 </div>
 <div class="d-grid gap-2 col-2 mx-auto">
@@ -78,10 +78,10 @@ if (isset($factura)) {
 
      <p>
       <form action="{{route('factura.detalle')}}" method="POST" onsubmit="return validar()">
+ <script src="{{asset('js/detalle.js')}}" ></script>
         @csrf
      <div class="container">
 <h4 class="bg-dark text-white" align="center">Detalle</h4>      
- <script src="{{asset('js/detalle.js')}}" ></script>
   <table class="table">
     
 <tr>
@@ -97,21 +97,21 @@ if (isset($factura)) {
      <td>
       <div id="contenedor-campos">
       <input id="fac_id" name="fac_id" value="{{$fac_id}}" type="hidden">
-       <input type="number" name="dat_cantidad" id="dat_cantidad" required style="width:150px" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
+       <input type="number" name="dat_cantidad" id="dat_cantidad" value="1"  style="width:150px" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
      </td>
      <td>
-      <select name="pro_id" id="pro_id" style="width: 200px" class="form-control">
+      <select name="pro_id" id="pro_id"   style="width: 200px" class="form-control">
         <option value="">Productos</option>
        @foreach($productos  as  $p)
-        <option value="{{$p->pro_id}}">{{$p->pro_nombre}}</option>
+        <option selected value="{{$p->pro_id}}">{{$p->pro_nombre}}</option>
         @endforeach
       </select>
      </td>
      <td>
-       <input type="number" name="dat_VU" id="dat_VU" required style="width:100px" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
+       <input type="number" name="dat_VU" value="1" id="dat_VU" style="width:100px" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
      </td>
      <td>
-       <input type="text" name="dat_VT" id="dat_VT" value="0" required style="width:100px" readonly="" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
+       <input type="text" name="dat_VT" id="dat_VT" value="2"  style="width:100px" readonly="" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
      </td>
      <td>
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
@@ -133,6 +133,7 @@ if (isset($factura)) {
                 <td class="text-right">{{number_format($dat->dat_VU,2)}}$</td>
                 <td class="text-right">{{number_format($dat->dat_VT,2)}}$</td>
                 <td>
+</form> 
                   <button class="btn btn-danger btn-sm" name="btn_eliminar" value="{{$dat->det_id}}" >Del</button>
                 </td>
               </tr>
@@ -163,7 +164,6 @@ if (isset($factura)) {
         @endisset
 
   </table>
-</form> 
 <script>
 window.onload = function(){
       const obj_cant=document.querySelector("#dat_cantidad");

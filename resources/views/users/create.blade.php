@@ -21,7 +21,7 @@
   <label for="floatingInput">Correo Electronico</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="usu_cedula" name="usu_cedula" placeholder="">
+  <input type="number" class="form-control" id="usu_cedula" name="usu_cedula" placeholder="">
   <label for="floatingInput">Cedula</label>
 </div>
 <div class="form-floating mb-3">
@@ -33,7 +33,7 @@
   <label for="floatingInput">Direccion</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" class="form-control" id="usu_telefono" name="usu_telefono" placeholder="">
+  <input type="number" class="form-control" id="usu_telefono" name="usu_telefono" placeholder="">
   <label for="floatingInput">Telefono</label>
 </div>
 <div class="form-floating mb-3">
