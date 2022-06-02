@@ -16,5 +16,10 @@ class permisos extends Seeder
           'per_tipo'=>'Administrador'
 
         ]);
+         DB::table('permisos')->insert([ 
+
+          'per_tipo'=>'Usuario'
+
+        ]);
     }
 }

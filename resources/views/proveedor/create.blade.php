@@ -3,6 +3,9 @@
 
 
 @section('content')
+<?php 
+$dor_fecha=date("Y-m-d");
+ ?>
 <div class="container">
    <script src="{{asset('js/proveedor.js')}}" ></script>
          <div class="row">
@@ -39,14 +42,14 @@
   <label for="floatingInput">Telefono</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="date" class="form-control" id="dor_fecha" name="dor_fecha" placeholder="">
+  <input type="date" readonly="" value="{{$dor_fecha}}" class="form-control" id="dor_fecha" name="dor_fecha" placeholder="">
   <label for="floatingInput">Fecha</label>
 </div>
 <div class="d-grid gap-2 col-2 mx-auto">
      <button type="submit" style="background:#eaccad " class="btn btn-outline-light">Guardar</button>
      </div>
 
-     	<!-- 
+     	<!--  
      	<p>
      <label>Nombre</label>
      <input type="text" name="dor_nombre" id="dor_nombre">

@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('per_id')->references('per_id')->on('permisos');
+            $table->foreignId('per_id')->references('per_id')->on('permisos')->default(1);
         });
     }
 

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+<script src="{{asset('js/productos.js')}}" ></script>
 <div class="container">
          <div class="row">
             <div class="col-md-9">
@@ -28,12 +30,13 @@
   <input type="text" value="{{$productos->pro_descripcion}}" class="form-control" id="pro_descripcion" name="pro_descripcion" placeholder="">
   <label for="floatingInput">Descripcion</label>
 </div><div class="form-floating mb-3">
-  <input type="number" value="{{$productos->pro_precio}}" class="form-control" id="pro_precio" name="pro_precio" placeholder="">
+  <input type="number" min="1" pattern="^[0-9]+" value="{{$productos->pro_precio}}" class="form-control" id="pro_precio" name="pro_precio" placeholder="" >
   <label for="floatingInput">Precio</label>
 </div>
  <div class="d-grid gap-2 col-2 mx-auto">
      <button type="submit" style="background:#c4ffff " class="btn "> Guardar</button>
      </div>
+
      <!-- <p>
      <input type="text" value="{{$productos->pro_nombre}}" name="pro_nombre" id="pro_nombre">
  </p>
@@ -59,4 +62,38 @@
      </form>
  </div>
 </div>
-@endsection  <script src="{{asset('js/productos.js')}}" ></script>
+<script >
+  
+  const campoNumerico = document.getElementById('pro_precio');
+
+campoNumerico.addEventListener('keydown', function(evento) {
+  const teclaPresionada = evento.key;
+  const teclaPresionadaEsUnNumero =
+    Number.isInteger(parseInt(teclaPresionada));
+
+  const sePresionoUnaTeclaNoAdmitida = 
+    teclaPresionada != 'ArrowDown' &&
+    teclaPresionada != 'ArrowUp' &&
+    teclaPresionada != 'ArrowLeft' &&
+    teclaPresionada != 'ArrowRight' &&
+    teclaPresionada != 'Backspace' &&
+    teclaPresionada != 'Delete' &&
+    teclaPresionada != 'Enter' &&
+    !teclaPresionadaEsUnNumero;
+  const comienzaPorCero = 
+    campoNumerico.value.length === 0 &&
+    teclaPresionada == 0;
+
+  if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+    evento.preventDefault(); 
+  }
+
+});
+</script>
+
+@endsection
+
+
+
+
+

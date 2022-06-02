@@ -16,7 +16,6 @@ class Clientes extends Model
         'cli_email',
         'cli_direccion',
         'cli_telefono',
-        'password',
         'per_id',
     ];
 }

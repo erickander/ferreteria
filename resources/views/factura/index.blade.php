@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+  
     
            <a class="btn btn-info text-white" href="{{route('factura.create')}}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">

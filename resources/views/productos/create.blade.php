@@ -54,7 +54,7 @@
   <label for="floatingInput">Descripccion</label>
 </div>
  <div class="form-floating mb-3">
-  <input type="number" class="form-control" id="pro_precio" step="auto" name="pro_precio" placeholder="">
+  <input type="number" class="form-control" min="1" pattern="^[0-9]+" id="pro_precio" step="auto" name="pro_precio" placeholder="">
  <!--  <div style="background: #f89af5" class="alert" role="alert">
   registre numeros
 </div> -->
@@ -93,3 +93,30 @@
 </div>
 </div>
 @endsection
+<script>
+ const campoNumerico = document.getElementById('pro_precio');
+
+campoNumerico.addEventListener('keydown', function(evento) {
+  const teclaPresionada = evento.key;
+  const teclaPresionadaEsUnNumero =
+    Number.isInteger(parseInt(teclaPresionada));
+
+  const sePresionoUnaTeclaNoAdmitida = 
+    teclaPresionada != 'ArrowDown' &&
+    teclaPresionada != 'ArrowUp' &&
+    teclaPresionada != 'ArrowLeft' &&
+    teclaPresionada != 'ArrowRight' &&
+    teclaPresionada != 'Backspace' &&
+    teclaPresionada != 'Delete' &&
+    teclaPresionada != 'Enter' &&
+    !teclaPresionadaEsUnNumero;
+  const comienzaPorCero = 
+    campoNumerico.value.length === 0 &&
+    teclaPresionada == 0;
+
+  if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+    evento.preventDefault(); 
+  }
+
+});
+</script>

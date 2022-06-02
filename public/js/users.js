@@ -5,7 +5,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Nombre Obligatorio!',
 });              
  return false;
 
@@ -14,7 +14,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Correo Electronico Obligatorio!',
 });              
  return false;
 
@@ -23,7 +23,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Cedula Obligatorio!',
 });              
  return false;
 
@@ -32,7 +32,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Ruc Obligatorio!',
 });              
  return false;
 
@@ -41,7 +41,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Direccion Obligatorio!',
 });              
  return false;
 
@@ -50,7 +50,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Telefono Obligatorio!',
 });              
  return false;
 
@@ -59,7 +59,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Contraseña Obligatorio!',
 });              
  return false;
 

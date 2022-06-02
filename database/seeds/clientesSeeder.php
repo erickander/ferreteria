@@ -19,8 +19,7 @@ class clientesSeeder extends Seeder
           'cli_email'=>'joel@gmail.com',
           'cli_direccion'=>'Gambely',
           'cli_telefono'=>'0985472657',
-          'password'=>bcrypt('123456789'),
-             'per_id'=>1
+             'per_id'=>2
 
         ]);
     }

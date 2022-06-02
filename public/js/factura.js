@@ -1,20 +1,20 @@
 //arrow funcion
 const validar=()=>{
-      const fac_numero_de_factura=document.querySelector("#fac_numero_de_factura");
-      if (fac_numero_de_factura.value.length==0) {
+      const cli_id=document.querySelector("#cli_id");
+      if (cli_id.value.length==0) {
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Cliente Obligatorio!',
 });              
  return false;
 
       }
-    if (fac_fecha.value.length==0) {
+    if (fac_numero_de_factura.value.length==0) {
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Numero de Factura Obligatorio!',
 });              
  return false;
 
@@ -23,7 +23,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Iva Obligatorio!',
 });              
  return false;
 
@@ -32,7 +32,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Descuento Obligatorio!',
 });              
  return false;
 
@@ -41,7 +41,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Observaciones Obligatorio!',
 });              
  return false;
 
@@ -50,7 +50,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Estado Obligatorio!',
 });              
  return false;
 
@@ -59,7 +59,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Total Obligatorio!',
 });              
  return false;
 
@@ -68,7 +68,7 @@ const validar=()=>{
         Swal.fire({
   icon: 'error',
   title: 'Error',
-  text: 'Campo Obligatorio!',
+  text: 'Cliente Obligatorio!',
 });              
  return false;
 

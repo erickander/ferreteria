@@ -10,7 +10,6 @@
     <form action="{{route('proveedor.update',$proveedor->dor_id)}}" method="POST"onsubmit="return validar()">
      	@csrf
      	
-     <label>Detalle de la categoria</label>
       <div class="form-floating mb-3">
   <input type="text" value="{{$proveedor->dor_nombre}}" class="form-control" id="dor_nombre" name="dor_nombre" placeholder="">
   <label for="floatingInput">Nombre</label>
@@ -31,7 +30,7 @@
   <input type="text" value="{{$proveedor->dor_telefono}}" class="form-control" id="dor_telefono" name="dor_telefono" placeholder="">
   <label for="floatingInput">Telefono</label>
 </div><div class="form-floating mb-3">
-  <input type="date" value="{{$proveedor->dor_fecha}}" class="form-control" id="dor_fecha" name="dor_fecha" placeholder="">
+  <input type="date" readonly="" value="{{$proveedor->dor_fecha}}" class="form-control" id="dor_fecha" name="dor_fecha" placeholder="">
   <label for="floatingInput">Fecha</label>
 </div>
  <div class="d-grid gap-2 col-2 mx-auto">

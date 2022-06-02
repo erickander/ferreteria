@@ -9,7 +9,6 @@ if (isset($factura)) {
   $fac_iva=$factura->fac_iva;
   $fac_descuento=$factura->fac_descuento;
   $fac_observaciones=$factura->fac_observaciones;
-  $fac_estado=$factura->fac_estado;
   $fac_total=$factura->fac_total;
 }else{
   $fac_id="";
@@ -17,9 +16,8 @@ if (isset($factura)) {
   $fac_numero_de_factura="";
   $fac_fecha=date("Y-m-d");
   $fac_iva=12;
-  $fac_descuento="";
+  $fac_descuento=0;
   $fac_observaciones="";
-  $fac_estado=1;
   $fac_total=0;
 }
 
@@ -41,7 +39,7 @@ if (isset($factura)) {
                          @if($c->cli_id==$cli_id)
                          <option selected value=" {{$c->cli_id}}"> {{$c->cli_nombre}} </option>
                          @else
-                         <option value=" {{$c->cli_id}}"> {{$c->cli_nombre}} </option>
+                         <option value="{{$c->cli_id}}"> {{$c->cli_nombre}} </option>
                          @endif
                          @endforeach
 
@@ -49,19 +47,19 @@ if (isset($factura)) {
         </select>  
         <p>  
  <div class="form-floating mb-3">
-  <input type="text" value="{{$fac_numero_de_factura}}" class="form-control" id="fac_numero_de_factura" name="fac_numero_de_factura" placeholder="">
+  <input type="number" min="1" pattern="^[0-9]+"   value="{{$fac_numero_de_factura}}" class="campo-numerico form-control" id="fac_numero_de_factura" name="fac_numero_de_factura" placeholder="">
   <label for="floatingInput">Numero de Factura</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="date" value="{{$fac_fecha}}" class="form-control" id="fac_fecha" name="fac_fecha" placeholder="">
+  <input type="date" readonly="" value="{{$fac_fecha}}" class="form-control" id="fac_fecha" name="fac_fecha" placeholder="">
   <label for="floatingInput"> Fecha</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" value="{{$fac_iva}}" class="form-control" id="fac_iva" name="fac_iva" placeholder="">
+  <input type="text" value="{{$fac_iva}}" readonly="" class="form-control" id="fac_iva" name="fac_iva" placeholder="">
   <label for="floatingInput">Iva</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="number" class="form-control" value="{{$fac_descuento}}" id="fac_descuento" name="fac_descuento" placeholder="">
+  <input type="number" class="form-control" readonly="" value="{{$fac_descuento}}" id="fac_descuento" name="fac_descuento" placeholder="">
   <label for="floatingInput">Descuento</label>
 </div>
 <div class="form-floating mb-3">
@@ -69,11 +67,7 @@ if (isset($factura)) {
   <label for="floatingInput">Observaciones</label>
 </div>
 <div class="form-floating mb-3">
-  <input type="text" value="{{$fac_estado}}" class="form-control" id="fac_estado" name="fac_estado" placeholder="">
-  <label for="floatingInput">Estado</label>
-</div>
-<div class="form-floating mb-3">
-  <input type="text" value="{{$fac_total}}" class="form-control" id="fac_total" name="fac_total" placeholder="">
+  <input type="text" value="{{$fac_total}}" readonly="" class="form-control" id="fac_total" name="fac_total" placeholder="">
   <label for="floatingInput">Total</label>
 </div>
 <div class="d-grid gap-2 col-2 mx-auto">
@@ -101,11 +95,12 @@ if (isset($factura)) {
    <td></td>
       
      <td>
+      <div id="contenedor-campos">
       <input id="fac_id" name="fac_id" value="{{$fac_id}}" type="hidden">
-       <input type="number" name="dat_cantidad" value="0" id="dat_cantidad" required style="width:150px" class="form-control">
+       <input type="number" name="dat_cantidad" id="dat_cantidad" required style="width:150px" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
      </td>
      <td>
-      <select name="pro_id" id="pro_id" value="0" style="width: 200px" class="form-control">
+      <select name="pro_id" id="pro_id" style="width: 200px" class="form-control">
         <option value="">Productos</option>
        @foreach($productos  as  $p)
         <option value="{{$p->pro_id}}">{{$p->pro_nombre}}</option>
@@ -113,13 +108,14 @@ if (isset($factura)) {
       </select>
      </td>
      <td>
-       <input type="number" name="dat_VU" id="dat_VU" value="0" required style="width:100px" class="form-control">
+       <input type="number" name="dat_VU" id="dat_VU" required style="width:100px" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
      </td>
      <td>
-       <input type="text" name="dat_VT" id="dat_VT" value="0" required style="width:100px" readonly="" class="form-control">
+       <input type="text" name="dat_VT" id="dat_VT" value="0" required style="width:100px" readonly="" class="campo-numerico form-control" min="1" pattern="^[0-9]+">
      </td>
      <td>
      <button type="submit" class="btn btn-info" name="btn_detalle" value="btn_detalle">+</button>
+     </div>
    </td>
     @isset($detalle)
      <?php 
@@ -167,7 +163,7 @@ if (isset($factura)) {
         @endisset
 
   </table>
-</form>
+</form> 
 <script>
 window.onload = function(){
       const obj_cant=document.querySelector("#dat_cantidad");
@@ -188,6 +184,34 @@ const calculos=()=>{
         document.querySelector("#dat_VT").value=vt;
 
 }
+
+const contenedor = document.getElementById('contenedor-campos');
+
+contenedor.addEventListener('keydown', function(evento) {
+  const elemento = evento.target;
+  if (elemento.className === 'campo-numerico') {
+    const teclaPresionada = evento.key;
+    const teclaPresionadaEsUnNumero =
+      Number.isInteger(parseInt(teclaPresionada));
+
+    const sePresionoUnaTeclaNoAdmitida = 
+      teclaPresionada != 'ArrowDown' &&
+      teclaPresionada != 'ArrowUp' &&
+      teclaPresionada != 'ArrowLeft' &&
+      teclaPresionada != 'ArrowRight' &&
+      teclaPresionada != 'Backspace' &&
+      teclaPresionada != 'Delete' &&
+      teclaPresionada != 'Enter' &&
+      !teclaPresionadaEsUnNumero;
+    const comienzaPorCero = 
+      elemento.value.length === 0 &&
+      teclaPresionada == 0;
+
+    if (sePresionoUnaTeclaNoAdmitida || comienzaPorCero) {
+      evento.preventDefault(); 
+    }
+  }
+});
 
 </script>
 </div>

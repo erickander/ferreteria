@@ -21,7 +21,7 @@ class Factura extends Migration
             $table->float('fac_total');
             $table->float('fac_iva');
             $table->float('fac_descuento');
-            $table->integer('fac_estado')->defaul(1);
+            $table->integer('fac_estado')->default(1);
             $table->string('fac_observaciones')->nullable();
 
         });
