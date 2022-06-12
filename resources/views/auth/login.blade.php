@@ -3,10 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+                <div align="center" class="card-header">
+                    
+                <h3>
+                    Iniciar Seccion
+                </h3>
+                </div> 
+  <img width="300px" src="http://assets.stickpng.com/images/585e4beacb11b227491c3399.png" class="img-thumbnail mx-auto d-block" alt="...">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

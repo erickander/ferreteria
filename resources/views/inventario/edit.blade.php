@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
       <script src="{{asset('js/inventario.js')}}" ></script>
          <div class="row">

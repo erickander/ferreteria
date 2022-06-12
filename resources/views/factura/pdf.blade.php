@@ -1,6 +1,4 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
-
 <?php 
 
 $fac_descuento=$factura->fac_descuento;
@@ -28,7 +26,11 @@ $fac_iva=$factura->fac_iva;
 <h3>No Cedula:{{$factura->cli_cedula}}</h3>
 <h3>Direccion:{{$factura->cli_direccion}}</h3>
 
-<div style="background:#2BA0CC;text-align: :center;">Detallen Factura </div>
+<div>
+	<h3>
+		Detalle de la factura
+	</h3>
+</div>
 
 <table class="table table-bordered" style="width:75%">
 	<tr>

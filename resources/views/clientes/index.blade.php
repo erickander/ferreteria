@@ -2,8 +2,7 @@
 @section('content')
 
 
-    
-    <table class="table table- table-striped" style="background:#FFE5B4 ">
+<body style="background: url(https://us.123rf.com/450wm/stashom/stashom2004/stashom200400003/145256600-marco-de-vista-superior-de-herramientas-de-mano-colecci%C3%B3n-de-gr%C3%A1ficos-grabados-dibujados-a-mano-ilus.jpg?ver=6); no-repeat; background-size: cover;">    <table class="table table- table-striped" style="background:#FFE5B4 ">
        @if(!empty(Session::get('sms')))
      <h3 class="alert alert-success">{{Session::get('sms')}}</h3>
       @endif

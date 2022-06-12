@@ -20,11 +20,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+    <style>
+    #img{
+
+        background-image: url("https://fondosmil.com/fondo/49741.jpg");
+    }
+</style>
 
                 @guest
                @else   
